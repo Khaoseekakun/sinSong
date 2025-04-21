@@ -1,0 +1,12 @@
+prefix: "&6[SinSong] &f"
+
+no_permission: "&cYou do not have permission."
+command_usage: "&eUse: /playsong <name>"
+song_not_found: "&cSong not found: {title}"
+playing_song: "&aNow playing: &e{title}"
+stopped_song: "&cStopped music."
+muted: "&cYou muted music."
+config_reloaded: "&aConfiguration reloaded."
+
+admin_usage: "&cUse: /sinsong <reload>"
+unmuted: "&aYou unmuted music."

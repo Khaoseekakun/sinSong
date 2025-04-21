@@ -1,0 +1,32 @@
+resource_pack_folder: "custom"  # This matches your folder inside assets/minecraft/sounds/custom/
+
+# example sounds.json file
+# {
+#     "custom.music_1": {
+#         "sounds": [
+#             {
+#                 "name": "custom/music_1",
+#                 "stream": true
+#             }
+#         ]
+#     },
+#     "custom.music_2": {
+#         "sounds": [
+#             {
+#                 "name": "custom/music_2",
+#                 "stream": true
+#             }
+#         ]
+#     },
+# }
+
+songs:
+  - name: music_1
+    title: "Song 1"
+    duration: 15 # seconds
+  - name: music_2
+    title: "Song 2"
+    duration: 20
+
+auto_play: "music_1"
+shuffle: true # true or false

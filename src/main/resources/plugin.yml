@@ -1,0 +1,31 @@
+name: sinSong
+version: '1.0.0'
+main: org.sinSong.SinSong
+api-version: '1.21'
+author: Sinsamuth
+
+
+commands:
+  playsong:
+    usage: /playsong <song_name>
+    description: Play a song
+    permission: sinsong.play
+
+  stopsong:
+    usage: /stopsong
+    description: Stop the current song
+    permission: sinsong.stop
+
+  skipsong:
+    usage: /skipsong
+    description: Skip to the next song
+    permission: sinsong.skip
+
+  togglemusic:
+    usage: /togglemusic
+    description: Mute or unmute music
+
+  reload:
+    usage: /sinsong reload
+    description: Reload the plugin configuration
+    permission: sinsong.reload
