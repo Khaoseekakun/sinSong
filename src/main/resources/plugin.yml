@@ -1,11 +1,20 @@
 name: sinSong
-version: '1.0.0'
+version: '1.0.1'
 main: org.sinSong.SinSong
 api-version: '1.21'
 author: Sinsamuth
 
-
 commands:
+  sinsong:
+    description: Main command for SinSong plugin
+    usage: /sinsong <subcommand>
+    permission: sinsong.use
+    subcommands:
+      reload:
+        description: Reload the plugin configuration
+        usage: /sinsong reload
+        permission: sinsong.reload
+
   playsong:
     usage: /playsong <song_name>
     description: Play a song
@@ -24,8 +33,4 @@ commands:
   togglemusic:
     usage: /togglemusic
     description: Mute or unmute music
-
-  reload:
-    usage: /sinsong reload
-    description: Reload the plugin configuration
-    permission: sinsong.reload
+    permission: sinsong.togglemusic

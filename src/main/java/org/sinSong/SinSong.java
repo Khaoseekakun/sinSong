@@ -106,6 +106,28 @@ public final class SinSong extends JavaPlugin {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        // Handle 'playsong' command
+        if (command.getName().equalsIgnoreCase("sinsong")) {
+            // Check if there are arguments (subcommands)
+            if (args.length == 0) {
+                sender.sendMessage(msg("main_command_usage"));
+                return true;
+            }
+
+            // Handle 'reload' subcommand
+            if (args[0].equalsIgnoreCase("reload")) {
+                if (!sender.hasPermission("sinsong.reload")) {
+                    sender.sendMessage(msg("no_permission"));
+                    return true;
+                }
+
+                reloadConfig();
+                loadMessages();  // If you are reloading messages, make sure to call this method
+                sender.sendMessage(msg("config_reloaded"));
+                return true;
+            }
+        }
+
         if (command.getName().equalsIgnoreCase("playsong")) {
             if (!sender.hasPermission("sinsong.play")) {
                 sender.sendMessage(msg("no_permission"));
@@ -129,6 +151,7 @@ public final class SinSong extends JavaPlugin {
             return true;
         }
 
+        // Handle 'stopsong' command
         if (command.getName().equalsIgnoreCase("stopsong")) {
             if (!sender.hasPermission("sinsong.stop")) {
                 sender.sendMessage(msg("no_permission"));
@@ -143,6 +166,7 @@ public final class SinSong extends JavaPlugin {
             return true;
         }
 
+        // Handle 'skipsong' command
         if (command.getName().equalsIgnoreCase("skipsong")) {
             if (!sender.hasPermission("sinsong.skip")) {
                 sender.sendMessage(msg("no_permission"));
@@ -157,10 +181,10 @@ public final class SinSong extends JavaPlugin {
 
             if (autoPlayTask != null) autoPlayTask.cancel();
             startAutoPlayLoop();
-
             return true;
         }
 
+        // Handle 'togglemusic' command
         if (command.getName().equalsIgnoreCase("togglemusic")) {
             if (!(sender instanceof Player)) {
                 sender.sendMessage("§cOnly players can use this command.");
@@ -180,20 +204,7 @@ public final class SinSong extends JavaPlugin {
             return true;
         }
 
-        if(command.getName().equalsIgnoreCase("sinsong")) {
-            if (args.length == 0) {
-                sender.sendMessage(msg("admin_usage"));
-                return true;
-            }
-
-            if (args[0].equalsIgnoreCase("reload")) {
-                reloadConfig();
-                loadMessages();
-                sender.sendMessage(msg("config_reloaded"));
-                return true;
-            }
-        }
-
+        // Handle 'reload' command
         return false;
     }
 
